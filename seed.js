@@ -25,6 +25,18 @@ db.sync({force: true})
   const promiseForVegetable = Vegetable.bulkCreate(VegetableData, {returning: true});
   return Promise.all([promiseForGardener, promiseForPlot, promiseForVegetable])
 })
+.then((insertedData) => {
+  //insertedData = return from promise.all
+  const [gardener, plot, vegetable] = insertedData
+  console.log('we are here')
+  // console.log(gardener)
+  // const [name, age] = gardener
+  const [size, shaded] = plot
+  //set ass'ns, run seed, check
+  // const [name, color] = vegetable
+
+  // const promise1 = grant.setGardener()
+})
 .catch((err) => {
   console.log(err)
 })
